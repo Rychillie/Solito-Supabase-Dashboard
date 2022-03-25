@@ -2,9 +2,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { HomeScreen } from '../../features/home/screen'
 import { UserDetailScreen } from '../../features/user/detail-screen'
+import { LoginScreen } from '../../features/login/screen'
 
 const Stack = createNativeStackNavigator<{
   home: undefined
+  login: undefined
   'user-detail': {
     id: string
   }
@@ -13,6 +15,14 @@ const Stack = createNativeStackNavigator<{
 export function NativeNavigation() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="login"
+        component={LoginScreen}
+        options={{
+          title: 'Login',
+          headerShown: false,
+        }}
+      />
       <Stack.Screen
         name="home"
         component={HomeScreen}
